@@ -11,7 +11,9 @@ const item2 = await createItem("Bermuda", 54.90,5 )
 await cartService.addItem(myCart,item1)
 await cartService.addItem(myCart,item2)
 
-await cartService.deletItem(myCart , item2.name)
+await cartService.displayCart(myCart)
+
+//await cartService.deletItem(myCart , item2.name)
 
 console.log("Shopee cart total is: ")
 await cartService.calculateTotal(myCart)
