@@ -11,7 +11,11 @@ async function deletItem(useCart , name) {
 }
 
 async function removeItem(useCart,index) {
-    
+    const deletIndex = index - 1;
+
+    if(index >= 0 && index < useCart.length){
+        useCart.splice(deletIndex,1)
+    }
 }
 
 async function calculateTotal(useCart) {
