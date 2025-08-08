@@ -10,12 +10,24 @@ async function deletItem(useCart , name) {
     }
 }
 
-async function removeItem(useCart,index) {
-    const deletIndex = index - 1;
+async function removeItem(useCart,item) {
+    const indexFound = useCart.findIndex((p)=>p.name === item.name)
 
-    if(index >= 0 && index < useCart.length){
-        useCart.splice(deletIndex,1)
+    if(indexFound == -1){
+        console.log("item nao encontrado");
+        return;
     }
+    
+    if(useCart[indexFound].quantity > 1){
+        useCart[indexFound].quantity -= 1;
+        return;
+    }
+
+     if(useCart[indexFound].quantity == 1){
+        useCart.splice(indexFound,1);
+        return;
+     }
+
 }
 
 async function calculateTotal(useCart) {
